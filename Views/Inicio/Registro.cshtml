@@ -1,0 +1,93 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Registro</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <div class="row justify-content-center mt-5">
+        <div class="col-5">
+            <div class="card-header">
+                <h3 class="text-center">Registro</h3>
+                <div class="card-body">
+
+                    @if (ViewBag.Creado == null)
+                    {
+                        <form action="@Url.Action("Registro","Inicio")" method="post">
+
+                            <div class="mb-3">
+                                <label>Numero de Documento</label>
+                                <input type="number" class="form-control" name="no_ident" value="@(ViewBag.Documento !=null ? ViewBag.Documento : "")" required />
+                            </div>
+                            <div class="mb-3">
+                                <label>Nombre</label>
+                                <input type="text" class="form-control" name="nombre" value="@(ViewBag.Nombre !=null ? ViewBag.Nombre : "")" required />
+                            </div>
+                            <div class="mb-3">
+                                <label>Primer Apellido</label>
+                                <input type="text" class="form-control" name="apellido_m" value="@(ViewBag.Apellido1 !=null ? ViewBag.Apellido1 : "")" />
+                            </div>
+                            <div class="mb-3">
+                                <label>Segundo Apellido</label>
+                                <input type="text" class="form-control" name="apellido_p" value="@(ViewBag.Apellido2 !=null ? ViewBag.Apellido2 : "")" />
+                            </div>
+                            <div class="mb-3">
+                                <label>Dirección</label>
+                                <input type="text" class="form-control" name="dirección" value="@(ViewBag.Dirección !=null ? ViewBag.Dirección : "")" />
+                            </div>
+                            <div class="mb-3">
+                                <label>Teléfono</label>
+                                <input type="number" x class="form-control" name="teléfono" value="@(ViewBag.Teléfono !=null ? ViewBag.Teléfono : "")" />
+                            </div>
+                            <div class="mb-3">
+                                <label>Correo</label>
+                                <input type="email" class="form-control" name="email" value="@(ViewBag.Correo !=null ? ViewBag.Correo : "")" required />
+                            </div>
+                            <div class="mb-3">
+                                <label>Contraseña</label>
+                                <input type="password" class="form-control" name="contraseña" required />
+                            </div>
+                            <div class="mb-3">
+                                <label>Confirmar Contraseña</label>
+                                <input type="password" class="form-control" name="confirmar_contraseña" required />
+                            </div>
+
+                            @if (ViewBag.Mensaje != null)
+                            {
+                                <div class="alert alert-danger">
+                                    @ViewBag.Mensaje
+                                </div>
+                            }
+
+                            <div class="mb-3">
+                                <div class="d-grid">
+                                    <button class="btn btn-primary" type="submit">Registrarse </button>
+                                    <a class="btn btn-link" href="@Url.Action("Login","Inicio")">¿Ya tienes una cuenta? Inicia sesion aquí</a>
+                                </div>
+                            </div>
+
+
+                        </form>
+                    }
+                    else
+                    {
+                        <div class="alert alert-success">
+                            <p>@ViewBag.Mensaje</p>
+                            <a class="btn btn-success" href="@Url.Action("Login","Inicio")">Ingresar</a>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>
