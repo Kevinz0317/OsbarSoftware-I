@@ -19,13 +19,16 @@ namespace Osbar.Repositories.Models
             {
                 using (SqlConnection con = new SqlConnection(CadenaSql))
                 {
-                    String consulta = "Insert into Usuario(no_ident,nombre,apellido_m,apellido_p,dirección,teléfono,email,contraseña,restablecer,confirmado,token)";
-                    consulta += " values(@no_ident,@nombre,@apellido_m,@apellido_p,@dirección,@teléfono,@email,@contraseña,@restablecer,@confirmado,@token)";
+                    String consulta = "Insert into Usuario(no_ident,id_rol,id_tipo_ident,nombre,apellido_m,apellido_p,id_ciudad,dirección,teléfono,email,contrasenha,reestablecer,confirmado,token)";
+                    consulta += " values(@no_ident,@id_rol,@id_tipo_ident,@nombre,@apellido_m,@apellido_p,@id_ciudad,@dirección,@teléfono,@email,@contraseña,@restablecer,@confirmado,@token)";
                     SqlCommand cmd = new SqlCommand(consulta, con);
                     cmd.Parameters.AddWithValue("@no_ident", usuario.no_ident);
+                    cmd.Parameters.AddWithValue("@id_rol", 1);
+                    cmd.Parameters.AddWithValue("@id_tipo_ident", usuario.id_tipo_ident);
                     cmd.Parameters.AddWithValue("@nombre", usuario.nombre);
                     cmd.Parameters.AddWithValue("@apellido_m", usuario.apellido_m);
                     cmd.Parameters.AddWithValue("@apellido_p", usuario.apellido_p);
+                    cmd.Parameters.AddWithValue("@id_ciudad", usuario.id_ciudad);
                     cmd.Parameters.AddWithValue("@dirección", usuario.dirección);
                     cmd.Parameters.AddWithValue("@teléfono", usuario.teléfono);
                     cmd.Parameters.AddWithValue("@email", usuario.email);
@@ -78,7 +81,7 @@ namespace Osbar.Repositories.Models
                                 apellido_p = dr["apellido_p"].ToString(),
                                 dirección = dr["dirección"].ToString(),
                                 teléfono = dr["teléfono"].ToString(),
-                                restablecer = (bool)dr["restablecer"],
+                                restablecer = (bool)dr["reestablecer"],
                                 confirmado = (bool)dr["confirmado"],
                             };
                         }
@@ -99,7 +102,7 @@ namespace Osbar.Repositories.Models
             {
                 using (SqlConnection con = new SqlConnection(CadenaSql))
                 {
-                    String consulta = "SELECT no_ident,nombre,apellido_m,apellido_p,dirección,teléfono,contraseña,restablecer,confirmado,token from Usuario";
+                    String consulta = "SELECT no_ident,nombre,apellido_m,apellido_p,dirección,teléfono,contrasenha,reestablecer,confirmado,token from Usuario";
                     consulta += " where email = @email";
 
                     SqlCommand cmd = new SqlCommand(consulta, con);
@@ -120,8 +123,8 @@ namespace Osbar.Repositories.Models
                                 apellido_p = dr["apellido_p"].ToString(),
                                 dirección = dr["dirección"].ToString(),
                                 teléfono = dr["teléfono"].ToString(),
-                                contraseña = dr["contraseña"].ToString(),
-                                restablecer = (bool)dr["restablecer"],
+                                contraseña = dr["contrasenha"].ToString(),
+                                restablecer = (bool)dr["reestablecer"],
                                 confirmado = (bool)dr["confirmado"],
                                 token = dr["token"].ToString()
                             };

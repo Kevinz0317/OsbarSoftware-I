@@ -21,6 +21,14 @@
                     @if (ViewBag.Creado == null)
                     {
                         <form action="@Url.Action("Registro","Inicio")" method="post">
+                            <div class="mb-3">
+                                <label for="tipo_ident">Tipo de Documento:</label>
+                                <select id="id_tipo_ident" class="form-control" name="id_tipo_ident">
+                                    <option value="1">Cédula de Ciudadanía</option>
+                                    <option value="2">Cédula de Extranjería</option>
+                                    <option value="3">Pasaporte</option>
+                                </select>
+                            </div>
 
                             <div class="mb-3">
                                 <label>Numero de Documento</label>
@@ -38,6 +46,51 @@
                                 <label>Segundo Apellido</label>
                                 <input type="text" class="form-control" name="apellido_p" value="@(ViewBag.Apellido2 !=null ? ViewBag.Apellido2 : "")" />
                             </div>
+
+                            <div class="mb-3">
+                                <label for="ciudad">Ciudad:</label>
+                                <select id="id_ciudad" class="form-control" name="id_ciudad">
+                                    <option value="1">Arauca</option>
+                                    <option value="2">Armenia</option>
+                                    <option value="3">Barranquilla</option>
+                                    <option value="4">Bogotá D.C.</option>
+                                    <option value="5">Bucaramanga</option>
+                                    <option value="6">Buenaventura</option>
+                                    <option value="7">Cali</option>
+                                    <option value="8">Cartagena</option>
+                                    <option value="9">Cucuta</option>
+                                    <option value="10">Facatativá</option>
+                                    <option value="11">Florencia</option>
+                                    <option value="12">Girardot</option>
+                                    <option value="13">Ibague</option>
+                                    <option value="14">Inirida</option>
+                                    <option value="15">Leticia</option>
+                                    <option value="16">Madrid</option>
+                                    <option value="17">Manizales</option>
+                                    <option value="18">Medellin</option>
+                                    <option value="19">Mitu</option>
+                                    <option value="20">Monteria</option>
+                                    <option value="21">Mocoa</option>
+                                    <option value="22">Mosquera</option>
+                                    <option value="23">Neiva</option>
+                                    <option value="24">Palmira</option>
+                                    <option value="25">Pasto</option>
+                                    <option value="26">Pereira</option>
+                                    <option value="27">Popayan</option>
+                                    <option value="28">Puerto Asis</option>
+                                    <option value="29">Quibdo</option>
+                                    <option value="30">Riohacha</option>
+                                    <option value="31">San Andres</option>
+                                    <option value="32">Santa Marta</option>
+                                    <option value="33">Sincelejo</option>
+                                    <option value="34">Tunja</option>
+                                    <option value="35">Turbo</option>
+                                    <option value="36">Valledupar</option>
+                                    <option value="37">Villavicencio</option>
+                                    <option value="38">Yopal</option>
+                                </select>
+                            </div>
+
                             <div class="mb-3">
                                 <label>Dirección</label>
                                 <input type="text" class="form-control" name="dirección" value="@(ViewBag.Dirección !=null ? ViewBag.Dirección : "")" />
