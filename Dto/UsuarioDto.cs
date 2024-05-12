@@ -23,5 +23,7 @@ namespace Osbar.Dto
         public bool restablecer { get; set; }
         public bool confirmado { get; set; }
         public String token { get; set; }
+
+        public RolDto idRol { get; set; }
     }
 }

@@ -9,25 +9,21 @@ namespace Osbar.Utilities
 {
     public class EncriptarContraseña
     {
-        public static string ConvertirSHA256(string texto)
+        public static string EncriptarMD5(string texto)
         {
-            string hash = string.Empty;
+            string hash = "Proyecto de Ingenieria de Software I - IPA - 2024";
+            byte[] data = UTF8Encoding.UTF8.GetBytes(texto);
 
-            using (SHA256 sha256 = SHA256.Create())
-            {
-                // obtener el hash del texto recibido
-                byte[] hashValue = sha256.ComputeHash(Encoding.UTF8.GetBytes(texto));
+            MD5 md5 = MD5.Create();
+            TripleDES tripleDES = TripleDES.Create();
 
-                // convertir el array byte en cadena de texto
-                foreach (byte b in hashValue)
-                    hash += $"{b:X2}";
-            }
-            return hash;
-        }
-        public static string GenerarToken()
-        {
-            string token = Guid.NewGuid().ToString("N");
-            return token;
+            tripleDES.Key = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash));
+            tripleDES.Mode = CipherMode.ECB;
+
+            ICryptoTransform transform = tripleDES.CreateEncryptor();
+            byte[] result = transform.TransformFinalBlock(data, 0, data.Length);
+
+            return Convert.ToBase64String(result);
         }
     }
 }

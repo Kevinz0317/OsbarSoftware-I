@@ -5,8 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Osbar.Repositories.Models;
+using Osbar.Repositories;
 using Osbar.Utilities;
+using System.Web.Security;
 
 namespace Osbar.Controllers
 {
@@ -20,9 +21,10 @@ namespace Osbar.Controllers
         [HttpPost]
         public ActionResult Login(string email, string contraseña)
         {
-            UsuarioDto usuario = UsuarioModel.ValidacionUsuario(email, EncriptarContraseña.ConvertirSHA256(contraseña));
+            UsuarioDto usuario = UsuarioRepository.ValidacionUsuario(email, EncriptarContraseña.EncriptarMD5(contraseña));
             if (usuario != null)
             {
+                Session["Usuario"] = usuario;
                 if (!usuario.confirmado)
                 {
                     ViewBag.Mensaje = $"Su cuenta no se ha verificado. Revise su correo electrónico {email}";
@@ -63,13 +65,13 @@ namespace Osbar.Controllers
                 return View();
             }
 
-            if (UsuarioModel.ObtenerUsuario(usuario.email) == null)
+            if (UsuarioRepository.ObtenerUsuario(usuario.email) == null)
             {
-                usuario.contraseña = EncriptarContraseña.ConvertirSHA256(usuario.contraseña);
-                usuario.token = EncriptarContraseña.GenerarToken();
+                usuario.contraseña = EncriptarContraseña.EncriptarMD5(usuario.contraseña);
+                usuario.token = GenerarToken.GenerarTokenMetodo();
                 usuario.restablecer = false;
                 usuario.confirmado = false;
-                bool resp = UsuarioModel.Registro(usuario);
+                bool resp = UsuarioRepository.Registro(usuario);
 
                 if (resp)
                 {
@@ -107,7 +109,7 @@ namespace Osbar.Controllers
 
         public ActionResult Verificacion(string token)
         {
-            ViewBag.Respuesta = UsuarioModel.VerificarUsuario(token);
+            ViewBag.Respuesta = UsuarioRepository.VerificarUsuario(token);
             return View();
         }
 
@@ -119,11 +121,11 @@ namespace Osbar.Controllers
         [HttpPost]
         public ActionResult Reestablecer(string email)
         {
-            UsuarioDto usuario = UsuarioModel.ObtenerUsuario(email);
+            UsuarioDto usuario = UsuarioRepository.ObtenerUsuario(email);
             ViewBag.Email = email;
             if (usuario != null)
             {
-                bool respuesta = UsuarioModel.RestablecerUsuario(1, usuario.contraseña, usuario.token);
+                bool respuesta = UsuarioRepository.RestablecerUsuario(1, usuario.contraseña, usuario.token);
 
                 if (respuesta)
                 {
@@ -172,7 +174,7 @@ namespace Osbar.Controllers
                 return View();
             }
 
-            bool respuesta = UsuarioModel.RestablecerUsuario(0, EncriptarContraseña.ConvertirSHA256(contraseña), token);
+            bool respuesta = UsuarioRepository.RestablecerUsuario(0, EncriptarContraseña.EncriptarMD5(contraseña), token);
 
             if (respuesta)
             {

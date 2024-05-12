@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\kevin\\source\\repos\\OsbarSoftware-I\\OsbarSoftware-I\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|C:\\Users\\kevin\\source\\repos\\OsbarSoftware-I\\OsbarSoftware-I\\repositories\\models\\usuariomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|solutionrelative:repositories\\models\\usuariomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|c:\\users\\kevin\\source\\repos\\osbarsoftware-i\\osbarsoftware-i\\controllers\\iniciocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|solutionrelative:controllers\\iniciocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|c:\\users\\kevin\\source\\repos\\osbarsoftware-i\\osbarsoftware-i\\utilities\\encriptarcontrase\u00F1a.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|solutionrelative:utilities\\encriptarcontrase\u00F1a.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|c:\\users\\kevin\\source\\repos\\osbarsoftware-i\\osbarsoftware-i\\views\\inicio\\registro.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|solutionrelative:views\\inicio\\registro.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|C:\\Users\\kevin\\source\\repos\\OsbarSoftware-I\\OsbarSoftware-I\\dto\\usuariodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|solutionrelative:dto\\usuariodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|c:\\users\\kevin\\source\\repos\\osbarsoftware-i\\osbarsoftware-i\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,20 +26,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UsuarioDto.cs",
-              "DocumentMoniker": "C:\\Users\\kevin\\source\\repos\\OsbarSoftware-I\\OsbarSoftware-I\\Dto\\UsuarioDto.cs",
-              "RelativeDocumentMoniker": "Dto\\UsuarioDto.cs",
-              "ToolTip": "C:\\Users\\kevin\\source\\repos\\OsbarSoftware-I\\OsbarSoftware-I\\Dto\\UsuarioDto.cs",
-              "RelativeToolTip": "Dto\\UsuarioDto.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAiwBAAAAArAAAA",
+              "DocumentIndex": 0,
+              "Title": "InicioController.cs",
+              "DocumentMoniker": "C:\\Users\\kevin\\source\\repos\\OsbarSoftware-I\\OsbarSoftware-I\\Controllers\\InicioController.cs",
+              "RelativeDocumentMoniker": "Controllers\\InicioController.cs",
+              "ToolTip": "C:\\Users\\kevin\\source\\repos\\OsbarSoftware-I\\OsbarSoftware-I\\Controllers\\InicioController.cs",
+              "RelativeToolTip": "Controllers\\InicioController.cs",
+              "ViewState": "AQIAAKMAAAAAAAAAAAASwLwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-04T23:29:58.659Z",
-              "IsPinned": true,
+              "WhenOpened": "2024-05-12T01:16:37.049Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EncriptarContrase\u00F1a.cs",
+              "DocumentMoniker": "C:\\Users\\kevin\\source\\repos\\OsbarSoftware-I\\OsbarSoftware-I\\Utilities\\EncriptarContrase\u00F1a.cs",
+              "RelativeDocumentMoniker": "Utilities\\EncriptarContrase\u00F1a.cs",
+              "ToolTip": "C:\\Users\\kevin\\source\\repos\\OsbarSoftware-I\\OsbarSoftware-I\\Utilities\\EncriptarContrase\u00F1a.cs",
+              "RelativeToolTip": "Utilities\\EncriptarContrase\u00F1a.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAswA0AAABIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-12T01:16:16.138Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\kevin\\source\\repos\\OsbarSoftware-I\\OsbarSoftware-I\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\kevin\\source\\repos\\OsbarSoftware-I\\OsbarSoftware-I\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-12T00:58:39.315Z",
               "EditorCaption": ""
             },
             {
@@ -50,35 +75,9 @@
               "RelativeDocumentMoniker": "Views\\Inicio\\Registro.cshtml",
               "ToolTip": "C:\\Users\\kevin\\source\\repos\\OsbarSoftware-I\\OsbarSoftware-I\\Views\\Inicio\\Registro.cshtml",
               "RelativeToolTip": "Views\\Inicio\\Registro.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFkAAAA1AAAA",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAAAUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-06T23:51:55.144Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "InicioController.cs",
-              "DocumentMoniker": "C:\\Users\\kevin\\source\\repos\\OsbarSoftware-I\\OsbarSoftware-I\\Controllers\\InicioController.cs",
-              "RelativeDocumentMoniker": "Controllers\\InicioController.cs",
-              "ToolTip": "C:\\Users\\kevin\\source\\repos\\OsbarSoftware-I\\OsbarSoftware-I\\Controllers\\InicioController.cs",
-              "RelativeToolTip": "Controllers\\InicioController.cs",
-              "ViewState": "AQIAAEoAAAAAAAAAAAAIwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-06T21:33:44.885Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UsuarioModel.cs",
-              "DocumentMoniker": "C:\\Users\\kevin\\source\\repos\\OsbarSoftware-I\\OsbarSoftware-I\\Repositories\\Models\\UsuarioModel.cs",
-              "RelativeDocumentMoniker": "Repositories\\Models\\UsuarioModel.cs",
-              "ToolTip": "C:\\Users\\kevin\\source\\repos\\OsbarSoftware-I\\OsbarSoftware-I\\Repositories\\Models\\UsuarioModel.cs",
-              "RelativeToolTip": "Repositories\\Models\\UsuarioModel.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAgwB4AAABPAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-04T23:28:22.442Z",
+              "WhenOpened": "2024-05-11T23:44:04.456Z",
               "EditorCaption": ""
             }
           ]
