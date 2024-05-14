@@ -9,11 +9,6 @@ namespace Osbar.Utilities
 {
     public class ConexionBD
     {
-        private static String CadenaSql = @"Data Source=KEVIN;Initial Catalog=Osbar;User ID=kevinz;Password=Kevin19";
-
-        public static IDbConnection Conexion()
-        {
-            return new SqlConnection(CadenaSql);
-        }
+        public static String CadenaSql = @"Data Source=KEVIN;Initial Catalog=Osbar;User ID=kevinz;Password=Kevin19";
     }
 }

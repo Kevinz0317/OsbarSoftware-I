@@ -5,18 +5,18 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Linq;
 using System.Web;
+using Osbar.Utilities;
 
 namespace Osbar.Repositories
 {
     public class UsuarioRepository
     {
-        private static String CadenaSql = @"Data Source=KEVIN;Initial Catalog=Osbar;User ID=kevinz;Password=Kevin19";
-        public static bool Registro(UsuarioDto usuario)
+         public static bool Registro(UsuarioDto usuario)
         {
             bool respuesta = false;
             try
             {
-                using (SqlConnection con = new SqlConnection(CadenaSql))
+                using (SqlConnection con = new SqlConnection(ConexionBD.CadenaSql))
                 {
                     String consulta = "Insert into Usuario(no_ident,id_rol,id_tipo_ident,nombre,apellido_m,apellido_p,id_ciudad,dirección,teléfono,email,contrasenha,reestablecer,confirmado,token)";
                     consulta += " values(@no_ident,@id_rol,@id_tipo_ident,@nombre,@apellido_m,@apellido_p,@id_ciudad,@dirección,@teléfono,@email,@contraseña,@restablecer,@confirmado,@token)";
@@ -56,7 +56,7 @@ namespace Osbar.Repositories
             UsuarioDto usuario = null;
             try
             {
-                using (SqlConnection con = new SqlConnection(CadenaSql))
+                using (SqlConnection con = new SqlConnection(ConexionBD.CadenaSql))
                 {
                     String consulta = "SELECT no_ident,nombre,apellido_m,apellido_p,dirección,teléfono,reestablecer,confirmado from Usuario";
                     consulta += " where email = @email AND contrasenha = @contraseña";
@@ -100,7 +100,7 @@ namespace Osbar.Repositories
             UsuarioDto usuario = null;
             try
             {
-                using (SqlConnection con = new SqlConnection(CadenaSql))
+                using (SqlConnection con = new SqlConnection(ConexionBD.CadenaSql))
                 {
                     String consulta = "SELECT no_ident,nombre,apellido_m,apellido_p,dirección,teléfono,contrasenha,reestablecer,confirmado,token from Usuario";
                     consulta += " where email = @email";
@@ -145,7 +145,7 @@ namespace Osbar.Repositories
             bool respuesta = false;
             try
             {
-                using (SqlConnection con = new SqlConnection(CadenaSql))
+                using (SqlConnection con = new SqlConnection(ConexionBD.CadenaSql))
                 {
                     String consulta = @"update Usuario set " +
                         "restablecer = @restablecer, " +
@@ -179,7 +179,7 @@ namespace Osbar.Repositories
             bool respuesta = false;
             try
             {
-                using (SqlConnection con = new SqlConnection(CadenaSql))
+                using (SqlConnection con = new SqlConnection(ConexionBD.CadenaSql))
                 {
                     String consulta = @"update Usuario set " +
                         "confirmado = 1 " +
