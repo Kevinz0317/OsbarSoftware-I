@@ -18,23 +18,20 @@ namespace Osbar.Repositories
             {
                 using (SqlConnection con = new SqlConnection(ConexionBD.CadenaSql))
                 {
-                    String consulta = "Insert into Usuario(no_ident,id_rol,id_tipo_ident,nombre,apellido_m,apellido_p,id_ciudad,dirección,teléfono,email,contrasenha,reestablecer,confirmado,token)";
-                    consulta += " values(@no_ident,@id_rol,@id_tipo_ident,@nombre,@apellido_m,@apellido_p,@id_ciudad,@dirección,@teléfono,@email,@contraseña,@restablecer,@confirmado,@token)";
+                    String consulta = "Insert into Usuario(noDocumento,idRol,idTipoIdentificacion,Nombres,Apellidos,Telefono,Email,Contrasenha,Reestablecer,Confirmado,Token)";
+                    consulta += " values(@noDocumento,@idRol,@idTipoIdentificacion,@Nombres,@Apellidos,@Telefono,@Email,@Contrasenha,@Reestablecer,@Confirmado,@Token)";
                     SqlCommand cmd = new SqlCommand(consulta, con);
-                    cmd.Parameters.AddWithValue("@no_ident", usuario.no_ident);
-                    cmd.Parameters.AddWithValue("@id_rol", 1);
-                    cmd.Parameters.AddWithValue("@id_tipo_ident", usuario.id_tipo_ident);
-                    cmd.Parameters.AddWithValue("@nombre", usuario.nombre);
-                    cmd.Parameters.AddWithValue("@apellido_m", usuario.apellido_m);
-                    cmd.Parameters.AddWithValue("@apellido_p", usuario.apellido_p);
-                    cmd.Parameters.AddWithValue("@id_ciudad", usuario.id_ciudad);
-                    cmd.Parameters.AddWithValue("@dirección", usuario.dirección);
-                    cmd.Parameters.AddWithValue("@teléfono", usuario.teléfono);
-                    cmd.Parameters.AddWithValue("@email", usuario.email);
-                    cmd.Parameters.AddWithValue("@contraseña", usuario.contraseña);
-                    cmd.Parameters.AddWithValue("@restablecer", usuario.restablecer);
-                    cmd.Parameters.AddWithValue("@confirmado", usuario.confirmado);
-                    cmd.Parameters.AddWithValue("@token", usuario.token);
+                    cmd.Parameters.AddWithValue("@noDocumento", usuario.noDocumento);
+                    cmd.Parameters.AddWithValue("@idRol", 1);
+                    cmd.Parameters.AddWithValue("@idTipoIdentificacion", usuario.idTipoIdentificacion);
+                    cmd.Parameters.AddWithValue("@Nombres", usuario.Nombres);
+                    cmd.Parameters.AddWithValue("@Apellidos", usuario.Apellidos);
+                    cmd.Parameters.AddWithValue("@Telefono", usuario.Telefono);
+                    cmd.Parameters.AddWithValue("@Email", usuario.Email);
+                    cmd.Parameters.AddWithValue("@Contrasenha", usuario.Contraseña);
+                    cmd.Parameters.AddWithValue("@Reestablecer", usuario.Reestablecer);
+                    cmd.Parameters.AddWithValue("@Confirmado", usuario.Confirmado);
+                    cmd.Parameters.AddWithValue("@Token", usuario.Token);
                     cmd.CommandType = CommandType.Text;
 
                     con.Open();
@@ -51,19 +48,19 @@ namespace Osbar.Repositories
             }
         }
 
-        public static UsuarioDto ValidacionUsuario(string email, string contraseña)
+        public static UsuarioDto ValidacionUsuario(string Email, string Contrasenha)
         {
             UsuarioDto usuario = null;
             try
             {
                 using (SqlConnection con = new SqlConnection(ConexionBD.CadenaSql))
                 {
-                    String consulta = "SELECT no_ident,nombre,apellido_m,apellido_p,dirección,teléfono,reestablecer,confirmado from Usuario";
-                    consulta += " where email = @email AND contrasenha = @contraseña";
+                    String consulta = "SELECT noDocumento,Nombres,Apellidos,Telefono,Reestablecer,Confirmado from Usuario";
+                    consulta += " where Email = @Email AND Contrasenha = @Contrasenha";
 
                     SqlCommand cmd = new SqlCommand(consulta, con);
-                    cmd.Parameters.AddWithValue("@email", email);
-                    cmd.Parameters.AddWithValue("@contraseña", contraseña);
+                    cmd.Parameters.AddWithValue("@Email", Email);
+                    cmd.Parameters.AddWithValue("@Contrasenha", Contrasenha);
                     cmd.CommandType = CommandType.Text;
 
                     con.Open();
@@ -74,14 +71,12 @@ namespace Osbar.Repositories
                         {
                             usuario = new UsuarioDto()
                             {
-                                no_ident = (int)dr["no_ident"],
-                                nombre = dr["nombre"].ToString(),
-                                apellido_m = dr["apellido_m"].ToString(),
-                                apellido_p = dr["apellido_p"].ToString(),
-                                dirección = dr["dirección"].ToString(),
-                                teléfono = dr["teléfono"].ToString(),
-                                restablecer = (bool)dr["reestablecer"],
-                                confirmado = (bool)dr["confirmado"],
+                                noDocumento = (int)dr["noDocumento"],
+                                Nombres = dr["Nombres"].ToString(),
+                                Apellidos = dr["Apellidos"].ToString(),
+                                Telefono = dr["Telefono"].ToString(),
+                                Reestablecer = (bool)dr["Reestablecer"],
+                                Confirmado = (bool)dr["Confirmado"],
                             };
                         }
                     }
@@ -95,18 +90,18 @@ namespace Osbar.Repositories
             return usuario;
         }
 
-        public static UsuarioDto ObtenerUsuario(string email)
+        public static UsuarioDto ObtenerUsuario(string Email)
         {
             UsuarioDto usuario = null;
             try
             {
                 using (SqlConnection con = new SqlConnection(ConexionBD.CadenaSql))
                 {
-                    String consulta = "SELECT no_ident,nombre,apellido_m,apellido_p,dirección,teléfono,contrasenha,reestablecer,confirmado,token from Usuario";
-                    consulta += " where email = @email";
+                    String consulta = "SELECT noDocumento,Nombres,Apellidos,Telefono,Contrasenha,Reestablecer,Confirmado,Token from Usuario";
+                    consulta += " where Email = @Email";
 
                     SqlCommand cmd = new SqlCommand(consulta, con);
-                    cmd.Parameters.AddWithValue("@email", email);
+                    cmd.Parameters.AddWithValue("@Email", Email);
                     cmd.CommandType = CommandType.Text;
 
                     con.Open();
@@ -117,16 +112,14 @@ namespace Osbar.Repositories
                         {
                             usuario = new UsuarioDto()
                             {
-                                no_ident = (int)dr["no_ident"],
-                                nombre = dr["nombre"].ToString(),
-                                apellido_m = dr["apellido_m"].ToString(),
-                                apellido_p = dr["apellido_p"].ToString(),
-                                dirección = dr["dirección"].ToString(),
-                                teléfono = dr["teléfono"].ToString(),
-                                contraseña = dr["contrasenha"].ToString(),
-                                restablecer = (bool)dr["reestablecer"],
-                                confirmado = (bool)dr["confirmado"],
-                                token = dr["token"].ToString()
+                                noDocumento = (int)dr["noDocumento"],
+                                Nombres = dr["Nombres"].ToString(),
+                                Apellidos = dr["Apellidos"].ToString(),
+                                Telefono = dr["Telefono"].ToString(),
+                                Contraseña = dr["Contrasenha"].ToString(),
+                                Reestablecer = (bool)dr["Reestablecer"],
+                                Confirmado = (bool)dr["Confirmado"],
+                                Token = dr["Token"].ToString()
                             };
                         }
                     }
@@ -140,7 +133,7 @@ namespace Osbar.Repositories
             return usuario;
         }
 
-        public static bool RestablecerUsuario(int restablecer, string contraseña, string token)
+        public static bool ReestablecerUsuario(int Reestablecer, string Contraseña, string Token)
         {
             bool respuesta = false;
             try
@@ -148,14 +141,14 @@ namespace Osbar.Repositories
                 using (SqlConnection con = new SqlConnection(ConexionBD.CadenaSql))
                 {
                     String consulta = @"update Usuario set " +
-                        "restablecer = @restablecer, " +
-                        "contraseña = @contraseña " +
-                        "where token = @token";
+                        "Reestablecer = @Reestablecer, " +
+                        "Contrasenha = @Contrasenha " +
+                        "where Token = @Token";
 
                     SqlCommand cmd = new SqlCommand(consulta, con);
-                    cmd.Parameters.AddWithValue("@contraseña", contraseña);
-                    cmd.Parameters.AddWithValue("@restablecer", restablecer);
-                    cmd.Parameters.AddWithValue("@token", token);
+                    cmd.Parameters.AddWithValue("@Contrasenha", Contraseña);
+                    cmd.Parameters.AddWithValue("@Reestablecer", Reestablecer);
+                    cmd.Parameters.AddWithValue("@Token", Token);
                     cmd.CommandType = CommandType.Text;
 
                     con.Open();
@@ -174,7 +167,7 @@ namespace Osbar.Repositories
             }
         }
 
-        public static bool VerificarUsuario(string token)
+        public static bool VerificarUsuario(string Token)
         {
             bool respuesta = false;
             try
@@ -182,11 +175,11 @@ namespace Osbar.Repositories
                 using (SqlConnection con = new SqlConnection(ConexionBD.CadenaSql))
                 {
                     String consulta = @"update Usuario set " +
-                        "confirmado = 1 " +
-                        "where token = @token";
+                        "Confirmado = 1 " +
+                        "where Token = @Token";
 
                     SqlCommand cmd = new SqlCommand(consulta, con);
-                    cmd.Parameters.AddWithValue("@token", token);
+                    cmd.Parameters.AddWithValue("@Token", Token);
                     cmd.CommandType = CommandType.Text;
 
                     con.Open();

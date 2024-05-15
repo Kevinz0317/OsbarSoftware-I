@@ -14,158 +14,160 @@ namespace Osbar.Repositories
 {
     public class ProductoRepository
     {
-        public int AgregarProducto(ProductoDto producto)
+
+        public List<ProductoDto> Listar()
         {
-            int respuesta = 0;
-            using (SqlConnection con = new SqlConnection(ConexionBD.CadenaSql))
+
+            List<ProductoDto> rptListaProducto = new List<ProductoDto>();
+            using (SqlConnection oConexion = new SqlConnection(ConexionBD.CadenaSql))
             {
-                try
-                {
-                    SqlCommand cmd = new SqlCommand("SP_AgregarProducto", con);
-                    cmd.Parameters.AddWithValue("nombre", producto.nombre);
-                    cmd.Parameters.AddWithValue("descripcion", producto.descripcion);
-                    cmd.Parameters.AddWithValue("id_categoria", producto.id_categoria);
-                    cmd.Parameters.AddWithValue("precio", producto.precio);
-                    cmd.Parameters.AddWithValue("impuesto", producto.impuesto);
-                    cmd.Parameters.AddWithValue("stock", producto.stock);
-                    cmd.Parameters.AddWithValue("imagen", producto.imagen);
-                    cmd.Parameters.Add("resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    con.Open();
-
-                    cmd.ExecuteNonQuery();
-
-                    respuesta = Convert.ToInt32(cmd.Parameters["resultado"].Value);
-                }catch (Exception ex)
-                {
-                    respuesta = 0;
-                    throw ex;
-                } 
-            }
-            return respuesta;
-        }
-
-        public bool ActualizarProducto(ProductoDto producto)
-        {
-            bool respuesta = false;
-            using (SqlConnection con = new SqlConnection(ConexionBD.CadenaSql))
-            {
-                try
-                {
-                    SqlCommand cmd = new SqlCommand("SP_ActualizarProductos", con);
-                    cmd.Parameters.AddWithValue("id_prod", producto.id_prod);
-                    cmd.Parameters.AddWithValue("nombre", producto.nombre);
-                    cmd.Parameters.AddWithValue("descripcion", producto.descripcion);
-                    cmd.Parameters.AddWithValue("id_categoria", producto.id_categoria);
-                    cmd.Parameters.AddWithValue("precio", producto.precio);
-                    cmd.Parameters.AddWithValue("impuesto", producto.impuesto);
-                    cmd.Parameters.AddWithValue("stock", producto.stock);
-                    cmd.Parameters.AddWithValue("imagen", producto.imagen);
-                    cmd.Parameters.Add("resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    con.Open();
-
-                    cmd.ExecuteNonQuery();
-
-                    respuesta = Convert.ToBoolean(cmd.Parameters["resultado"].Value);
-                }catch (Exception ex)
-                {
-                    respuesta = false;
-                    throw ex;
-                }
-            }
-            return respuesta;
-        }
-
-        public bool ActualizarCampoImagen(ProductoDto producto)
-        {
-            bool respuesta = true;
-            using (SqlConnection con = new SqlConnection(ConexionBD.CadenaSql))
-            {
-                try
-                {
-                    SqlCommand cmd = new SqlCommand("SP_ActualizarCampoImagen", con);
-                    cmd.Parameters.AddWithValue("id_prod", producto.id_prod);
-                    cmd.Parameters.AddWithValue("imagen", producto.imagen);
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    con.Open();
-
-                    cmd.ExecuteNonQuery();
-                }catch (Exception ex)
-                {
-                    respuesta = false;
-                    throw ex;
-                }
-            }
-            return respuesta;
-        }
-
-        public bool EliminarProducto(int id_prod)
-        {
-            bool respuesta = true;
-            using (SqlConnection con = new SqlConnection(ConexionBD.CadenaSql))
-            {
-                try
-                {
-                    SqlCommand cmd = new SqlCommand("SP_EliminarProductos", con);
-                    cmd.Parameters.AddWithValue("id_prod", id_prod);
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    con.Open();
-
-                    cmd.ExecuteNonQuery();
-
-                    respuesta = true;
-                }catch (Exception ex)
-                {
-                    respuesta = false;
-                    throw ex;
-                }
-            }
-            return respuesta;
-        }
-        
-        public List<ProductoDto> ObtenerListaProductos()
-        {
-            List<ProductoDto> listProd = new List<ProductoDto>();
-            using (SqlConnection con = new SqlConnection(ConexionBD.CadenaSql))
-            {
-                SqlCommand cmd = new SqlCommand("SP_ConsultarProductos", con);
+                SqlCommand cmd = new SqlCommand("sp_obtenerProducto", oConexion);
                 cmd.CommandType = CommandType.StoredProcedure;
+
                 try
                 {
-                    con.Open();
+                    oConexion.Open();
                     SqlDataReader dr = cmd.ExecuteReader();
-
-                    while(dr.Read())
+                    while (dr.Read())
                     {
-                        listProd.Add(new ProductoDto()
+                        rptListaProducto.Add(new ProductoDto()
                         {
-                            id_prod = Convert.ToInt32(dr["id_nombre"].ToString()),
-                            nombre = dr["nombre"].ToString(),
-                            descripcion = dr["descripcion"].ToString(),
-                            id_categoria = Convert.ToInt32(dr["id_categoria"].ToString()),
-                            precio = Convert.ToDecimal(dr["precio"].ToString()),
-                            impuesto = Convert.ToDecimal(dr["impuesto"].ToString()),
-                            stock = Convert.ToInt32(dr["stock"].ToString()),
-                            imagen = dr["imagen"].ToString(),
+                            IdProducto = Convert.ToInt32(dr["IdProducto"].ToString()),
+                            Nombre = dr["Nombre"].ToString(),
+                            Descripcion = dr["Descripcion"].ToString(),
+                            oCategoria = new CategoriaDto() { IdCategoria = Convert.ToInt32(dr["IdCategoria"].ToString()), Descripcion = dr["DescripcionCategoria"].ToString() },
+                            Precio = Convert.ToDecimal(dr["Precio"].ToString()),
+                            Stock = Convert.ToInt32(dr["Stock"].ToString()),
+                            RutaImagen = dr["RutaImagen"].ToString(),
                         });
                     }
                     dr.Close();
 
-                    return listProd;
+                    return rptListaProducto;
 
-                }catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
-                    listProd = null;
-                    return listProd;
+                    rptListaProducto = null;
 
+                    return rptListaProducto;
                     throw ex;
                 }
             }
+        }
+        public int Registrar(ProductoDto oProducto)
+        {
+            int respuesta = 0;
+            using (SqlConnection oConexion = new SqlConnection(ConexionBD.CadenaSql))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_registrarProducto", oConexion);
+                    cmd.Parameters.AddWithValue("Nombre", oProducto.Nombre);
+                    cmd.Parameters.AddWithValue("Descripcion", oProducto.Descripcion);
+                    cmd.Parameters.AddWithValue("IdCategoria", oProducto.oCategoria.IdCategoria);
+                    cmd.Parameters.AddWithValue("Precio", oProducto.Precio);
+                    cmd.Parameters.AddWithValue("Stock", oProducto.Stock);
+                    cmd.Parameters.AddWithValue("RutaImagen", oProducto.RutaImagen);
+                    cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    oConexion.Open();
+
+                    cmd.ExecuteNonQuery();
+
+                    respuesta = Convert.ToInt32(cmd.Parameters["Resultado"].Value);
+
+                }
+                catch (Exception ex)
+                {
+                    respuesta = 0;
+                    throw ex;
+                }
+            }
+            return respuesta;
+        }
+        public bool Modificar(ProductoDto oProducto)
+        {
+            bool respuesta = false;
+            using (SqlConnection oConexion = new SqlConnection(ConexionBD.CadenaSql))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_EditarProducto", oConexion);
+                    cmd.Parameters.AddWithValue("IdProducto", oProducto.IdProducto);
+                    cmd.Parameters.AddWithValue("Nombre", oProducto.Nombre);
+                    cmd.Parameters.AddWithValue("Descripcion", oProducto.Descripcion);
+                    cmd.Parameters.AddWithValue("IdCategoria", oProducto.oCategoria.IdCategoria);
+                    cmd.Parameters.AddWithValue("Precio", oProducto.Precio);
+                    cmd.Parameters.AddWithValue("Stock", oProducto.Stock);
+                    cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    oConexion.Open();
+
+                    cmd.ExecuteNonQuery();
+
+                    respuesta = Convert.ToBoolean(cmd.Parameters["Resultado"].Value);
+
+                }
+                catch (Exception ex)
+                {
+                    respuesta = false;
+                    throw ex;
+                }
+            }
+            return respuesta;
+        }
+
+        public bool ActualizarRutaImagen(ProductoDto oProducto)
+        {
+            bool respuesta = true;
+            using (SqlConnection oConexion = new SqlConnection(ConexionBD.CadenaSql))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_actualizarRutaImagen", oConexion);
+                    cmd.Parameters.AddWithValue("IdProducto", oProducto.IdProducto);
+                    cmd.Parameters.AddWithValue("RutaImagen", oProducto.RutaImagen);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    oConexion.Open();
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    respuesta = false;
+                    throw ex;
+                }
+            }
+            return respuesta;
+        }
+
+        public bool Eliminar(int id)
+        {
+            bool respuesta = true;
+            using (SqlConnection oConexion = new SqlConnection(ConexionBD.CadenaSql))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("delete from Producto where idProducto = @id", oConexion);
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.CommandType = CommandType.Text;
+
+                    oConexion.Open();
+
+                    cmd.ExecuteNonQuery();
+
+                    respuesta = true;
+
+                }
+                catch (Exception ex)
+                {
+                    respuesta = false;
+                    throw ex;
+                }
+            }
+            return respuesta;
         }
     }
 }

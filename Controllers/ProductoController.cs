@@ -27,102 +27,109 @@ namespace Osbar.Controllers
             return View();
         }
 
-        [HttpPost]
-        public JsonResult AgregarProducto(string producto, HttpPostedFileBase archivoImagen)
-        {
-            ResponseDto resp = new ResponseDto() { resultado = true, mensaje = "" };
-            try
-            {
-                ProductoDto prod = new ProductoDto();
-                prod = JsonConvert.DeserializeObject<ProductoDto>(producto);
-
-                string rutaImagen = "~/Imagenes/ProductosImgs";
-                string pathImagen = "~/Imagenes/ProductosImgs";
-
-                if (!Directory.Exists(pathImagen))
-                    Directory.CreateDirectory(pathImagen);
-
-                if (prod.id_prod == 0)
-                {
-                    int id_prod = pr.AgregarProducto(prod);
-                    prod.id_prod = id_prod;
-                    resp.resultado = prod.id_prod == 0 ? false : true;
-                }
-                else
-                {
-                    resp.resultado = pr.ActualizarProducto(prod);
-                }
-
-                if (archivoImagen != null && prod.id_prod != 0)
-                {
-                    string ext = Path.GetExtension(archivoImagen.FileName);
-                    rutaImagen = rutaImagen + prod.id_prod.ToString() + ext;
-                    prod.imagen = rutaImagen;
-
-                    archivoImagen.SaveAs(pathImagen + "/" + prod.id_prod.ToString() + ext);
-                    resp.resultado = pr.ActualizarCampoImagen(prod);
-                }
-            }
-            catch (Exception ex)
-            {
-                resp.resultado = false;
-                resp.mensaje = ex.Message;
-            }
-            return Json(resp, JsonRequestBehavior.AllowGet);
-        }
-
-        [HttpGet]
-        public JsonResult ListaProductos()
-        {
-            List<ProductoDto> producto = new List<ProductoDto>();
-            producto = pr.ObtenerListaProductos();
-            producto = (from p in producto
-                        select new ProductoDto()
-                        {
-                            id_prod = p.id_prod,
-                            nombre = p.nombre,
-                            descripcion = p.descripcion,
-                            id_categoria = p.id_categoria,
-                            precio = p.precio,
-                            impuesto = p.impuesto,
-                            stock = p.stock,
-                            imagen = p.imagen,
-                            imgBase64 = Utilities.ConvertirBase64.convertirBase64(Server.MapPath(p.imagen)),
-                            extImg = Path.GetExtension(p.imagen).Replace(".", "")
-                        }).ToList();
-            return Json(new { data = producto }, JsonRequestBehavior.AllowGet);
-        }
-
-        [HttpPost]
-        public JsonResult EliminarProducto(int id_prod)
-        {
-            bool respuesta = false;
-            respuesta = pr.EliminarProducto(id_prod);
-            return Json(new { resultado = respuesta }, JsonRequestBehavior.AllowGet);
-        }
-
-
         [HttpGet]
         public JsonResult ListarCategoria()
         {
             List<CategoriaDto> oLista = new List<CategoriaDto>();
-            oLista = CategoriaRepository.Instance.Listar();
+            oLista = cr.Consultar();
             return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
         }
+
         [HttpPost]
         public JsonResult GuardarCategoria(CategoriaDto objeto)
         {
             bool respuesta = false;
-            respuesta = (objeto.id_categoria == 0) ? CategoriaRepository.Instance.Registrar(objeto) : CategoriaRepository.Instance.Modificar(objeto);
+            respuesta = (objeto.IdCategoria == 0) ? cr.Agregar(objeto) : cr.Editar(objeto);
             return Json(new { resultado = respuesta }, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         public JsonResult EliminarCategoria(int id)
         {
             bool respuesta = false;
-            respuesta = CategoriaRepository.Instance.Eliminar(id);
+            respuesta = cr.Eliminar(id);
+            return Json(new { resultado = respuesta }, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult ListarProducto()
+        {
+            List<ProductoDto> oLista = new List<ProductoDto>();
+
+            oLista = pr.Listar();
+            oLista = (from o in oLista
+                      select new ProductoDto()
+                      {
+                          IdProducto = o.IdProducto,
+                          Nombre = o.Nombre,
+                          Descripcion = o.Descripcion,
+                          oCategoria = o.oCategoria,
+                          Precio = o.Precio,
+                          Stock = o.Stock,
+                          RutaImagen = o.RutaImagen,
+                          base64 = ConvertirBase64.convertirBase64(Server.MapPath(o.RutaImagen)),
+                          extension = Path.GetExtension(o.RutaImagen).Replace(".", ""),
+                      }).ToList();
+            return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult GuardarProducto(string objeto, HttpPostedFileBase imagenArchivo)
+        {
+
+            ResponseDto oresponse = new ResponseDto() { resultado = true, mensaje = "" };
+
+            try
+            {
+                ProductoDto oProducto = new ProductoDto();
+                oProducto = JsonConvert.DeserializeObject<ProductoDto>(objeto);
+
+                string GuardarEnRuta = "~/Imagenes/ProductosOsbar/";
+                string physicalPath = Server.MapPath("~/Imagenes/ProductosOsbar");
+
+                if (!Directory.Exists(physicalPath))
+                    Directory.CreateDirectory(physicalPath);
+
+                if (oProducto.IdProducto == 0)
+                {
+                    int id = pr.Registrar(oProducto);
+                    oProducto.IdProducto = id;
+                    oresponse.resultado = oProducto.IdProducto == 0 ? false : true;
+
+                }
+                else
+                {
+                    oresponse.resultado = pr.Modificar(oProducto);
+                }
+
+
+                if (imagenArchivo != null && oProducto.IdProducto != 0)
+                {
+                    string extension = Path.GetExtension(imagenArchivo.FileName);
+                    GuardarEnRuta = GuardarEnRuta + oProducto.IdProducto.ToString() + extension;
+                    oProducto.RutaImagen = GuardarEnRuta;
+
+                    imagenArchivo.SaveAs(physicalPath + "/" + oProducto.IdProducto.ToString() + extension);
+
+                    oresponse.resultado = pr.ActualizarRutaImagen(oProducto);
+                }
+
+            }
+            catch (Exception e)
+            {
+                oresponse.resultado = false;
+                oresponse.mensaje = e.Message;
+            }
+
+            return Json(oresponse, JsonRequestBehavior.AllowGet);
+        }
+    
+
+    [HttpPost]
+        public JsonResult EliminarProducto(int id)
+        {
+            bool respuesta = false;
+            respuesta = pr.Eliminar(id);
             return Json(new { resultado = respuesta }, JsonRequestBehavior.AllowGet);
         }
     }
-
-    }
+}

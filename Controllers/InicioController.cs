@@ -19,19 +19,19 @@ namespace Osbar.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Login(string email, string contraseña)
+        public ActionResult Login(string Email, string Contraseña)
         {
-            UsuarioDto usuario = UsuarioRepository.ValidacionUsuario(email, EncriptarContraseña.EncriptarMD5(contraseña));
+            UsuarioDto usuario = UsuarioRepository.ValidacionUsuario(Email, EncriptarContraseña.EncriptarMD5(Contraseña));
             if (usuario != null)
             {
                 Session["Usuario"] = usuario;
-                if (!usuario.confirmado)
+                if (!usuario.Confirmado)
                 {
-                    ViewBag.Mensaje = $"Su cuenta no se ha verificado. Revise su correo electrónico {email}";
+                    ViewBag.Mensaje = $"Su cuenta no se ha verificado. Revise su correo electrónico {Email}";
                 }
-                else if (usuario.restablecer)
+                else if (usuario.Reestablecer)
                 {
-                    ViewBag.Mensaje = $"Se ha solicitado la restauración de su contraseña. Revise su correo electrónico {email}";
+                    ViewBag.Mensaje = $"Se ha solicitado la restauración de su contraseña. Revise su correo electrónico {Email}";
                 }
                 else
                 {
@@ -50,47 +50,45 @@ namespace Osbar.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Registro(UsuarioDto usuario)
+         public ActionResult Registro(UsuarioDto usuario)
         {
-            if (usuario.contraseña != usuario.confirmar_contraseña)
+            if (usuario.Contraseña != usuario.Confirmar_contraseña)
             {
-                ViewBag.Documento = usuario.no_ident;
-                ViewBag.Nombre = usuario.nombre;
-                ViewBag.Apellido1 = usuario.apellido_m;
-                ViewBag.Apellido2 = usuario.apellido_p;
-                ViewBag.Dirección = usuario.dirección;
-                ViewBag.Teléfono = usuario.teléfono;
-                ViewBag.Email = usuario.email;
+                ViewBag.Documento = usuario.noDocumento;
+                ViewBag.Nombres = usuario.Nombres;
+                ViewBag.Apellidos = usuario.Apellidos;
+                ViewBag.Telefono = usuario.Telefono;
+                ViewBag.Email = usuario.Email;
                 ViewBag.Mensaje = "Las contraseñas que ingresó no coinciden.";
                 return View();
             }
 
-            if (UsuarioRepository.ObtenerUsuario(usuario.email) == null)
+            if (UsuarioRepository.ObtenerUsuario(usuario.Email) == null)
             {
-                usuario.contraseña = EncriptarContraseña.EncriptarMD5(usuario.contraseña);
-                usuario.token = GenerarToken.GenerarTokenMetodo();
-                usuario.restablecer = false;
-                usuario.confirmado = false;
+                usuario.Contraseña = EncriptarContraseña.EncriptarMD5(usuario.Contraseña);
+                usuario.Token = GenerarToken.GenerarTokenMetodo();
+                usuario.Reestablecer = false;
+                usuario.Confirmado = false;
                 bool resp = UsuarioRepository.Registro(usuario);
 
                 if (resp)
                 {
                     string ruta = HttpContext.Server.MapPath("~/Views/PlantillaCorreo/VerificarCorreo.html");
                     string contenido = System.IO.File.ReadAllText(ruta);
-                    string url = string.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Headers["host"], "/Inicio/Verificacion?token=" + usuario.token);
+                    string url = string.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Headers["host"], "/Inicio/Verificacion?token=" + usuario.Token);
 
-                    string htmlBody = string.Format(contenido, usuario.nombre, url);
+                    string htmlBody = string.Format(contenido, usuario.Nombres, url);
 
                     CorreoDto correoDto = new CorreoDto()
                     {
-                        Destinatario = usuario.email,
+                        Destinatario = usuario.Email,
                         Asunto = "Verificación de Correo",
                         Contenido = htmlBody
                     };
 
                     bool enviado = CorreoService.EnviarCorreo(correoDto);
                     ViewBag.Creado = true;
-                    ViewBag.Mensaje = $"Su cuenta ha sido creada satisfactoriamente. Se ha enviado un mensaje al correo proporcionad {usuario.email} para la verificación de su cuenta.";
+                    ViewBag.Mensaje = $"Su cuenta ha sido creada satisfactoriamente. Se ha enviado un mensaje al correo proporcionado {usuario.Email} para la verificación de su cuenta.";
                 }
                 else
                 {
@@ -119,31 +117,31 @@ namespace Osbar.Controllers
         }
 
         [HttpPost]
-        public ActionResult Reestablecer(string email)
+        public ActionResult Reestablecer(string Email)
         {
-            UsuarioDto usuario = UsuarioRepository.ObtenerUsuario(email);
-            ViewBag.Email = email;
+            UsuarioDto usuario = UsuarioRepository.ObtenerUsuario(Email);
+            ViewBag.Email = Email;
             if (usuario != null)
             {
-                bool respuesta = UsuarioRepository.RestablecerUsuario(1, usuario.contraseña, usuario.token);
+                bool respuesta = UsuarioRepository.ReestablecerUsuario(1, usuario.Contraseña, usuario.Token);
 
                 if (respuesta)
                 {
                     string ruta = HttpContext.Server.MapPath("~/Views/PlantillaCorreo/ReestablecerContraseña.html");
                     string contenido = System.IO.File.ReadAllText(ruta);
-                    string url = string.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Headers["host"], "/Inicio/ActualizarContraseña?token=" + usuario.token);
+                    string url = string.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Headers["host"], "/Inicio/ActualizarContraseña?token=" + usuario.Token);
 
-                    string htmlBody = string.Format(contenido, usuario.nombre, url);
+                    string htmlBody = string.Format(contenido, usuario.Nombres, url);
 
                     CorreoDto correoDto = new CorreoDto()
                     {
-                        Destinatario = email,
+                        Destinatario = Email,
                         Asunto = "Reestablecimiento de cuenta",
                         Contenido = htmlBody
                     };
 
                     bool enviado = CorreoService.EnviarCorreo(correoDto);
-                    ViewBag.Restablecido = true;
+                    ViewBag.Reestablecido = true;
                 }
                 else
                 {
@@ -174,11 +172,11 @@ namespace Osbar.Controllers
                 return View();
             }
 
-            bool respuesta = UsuarioRepository.RestablecerUsuario(0, EncriptarContraseña.EncriptarMD5(contraseña), token);
+            bool respuesta = UsuarioRepository.ReestablecerUsuario(0, EncriptarContraseña.EncriptarMD5(contraseña), token);
 
             if (respuesta)
             {
-                ViewBag.Restablecido = true;
+                ViewBag.Reestablecido = true;
             }
             else
             {

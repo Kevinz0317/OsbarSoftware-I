@@ -11,8 +11,8 @@ namespace Osbar.Utilities
         public static string convertirBase64(string ruta)
         {
             byte[] bytes = File.ReadAllBytes(ruta);
-            string archivo = Convert.ToBase64String(bytes);
-            return archivo;
+            string file = Convert.ToBase64String(bytes);
+            return file;
         }
     }
 }

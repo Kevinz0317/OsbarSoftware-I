@@ -7,7 +7,7 @@ namespace Osbar.Dto
 {
     public class CategoriaDto
     {
-        public int id_categoria { get; set; }
-        public string nombre { get; set; }
+        public int IdCategoria { get; set; }
+        public string Descripcion { get; set; }
     }
 }

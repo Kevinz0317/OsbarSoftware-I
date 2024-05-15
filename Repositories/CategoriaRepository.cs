@@ -12,28 +12,43 @@ namespace Osbar.Repositories
 {
     public class CategoriaRepository
     {
-        private static CategoriaRepository instancia = null;
 
-        public CategoriaRepository() { }
-        public static CategoriaRepository Instance
+        public bool Agregar(CategoriaDto oCategoria)
         {
-            get
+            bool respuesta = true;
+            using (SqlConnection oConexion = new SqlConnection(ConexionBD.CadenaSql))
             {
-                if(instancia == null)
+                try
                 {
-                    instancia = new CategoriaRepository();
+                    SqlCommand cmd = new SqlCommand("SP_AgregarCategoria", oConexion);
+                    cmd.Parameters.AddWithValue("Descripcion", oCategoria.Descripcion);
+                    cmd.Parameters.Add("Resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    oConexion.Open();
+
+                    cmd.ExecuteNonQuery();
+
+                    respuesta = Convert.ToBoolean(cmd.Parameters["Resultado"].Value);
+
                 }
-                return instancia;
+                catch (Exception ex)
+                {
+                    respuesta = false;
+                    throw ex;
+                }
             }
+            return respuesta;
         }
 
-        public List<CategoriaDto> Listar()
+
+        public List<CategoriaDto> Consultar()
         {
 
             List<CategoriaDto> rptListaCategoria = new List<CategoriaDto>();
             using (SqlConnection oConexion = new SqlConnection(ConexionBD.CadenaSql))
             {
-                SqlCommand cmd = new SqlCommand("sp_obtenerCategoria", oConexion);
+                SqlCommand cmd = new SqlCommand("SP_ConsultarCategoria", oConexion);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 try
@@ -45,8 +60,8 @@ namespace Osbar.Repositories
                     {
                         rptListaCategoria.Add(new CategoriaDto()
                         {
-                            id_categoria = Convert.ToInt32(dr["id_categoria"].ToString()),
-                            nombre = dr["nombre"].ToString(),
+                            IdCategoria = Convert.ToInt32(dr["IdCategoria"].ToString()),
+                            Descripcion = dr["Descripcion"].ToString(),
                         });
                     }
                     dr.Close();
@@ -58,48 +73,21 @@ namespace Osbar.Repositories
                 {
                     rptListaCategoria = null;
                     return rptListaCategoria;
+                    throw ex;
                 }
             }
         }
 
-
-        public bool Registrar(CategoriaDto oCategoria)
+        public bool Editar(CategoriaDto oCategoria)
         {
             bool respuesta = true;
             using (SqlConnection oConexion = new SqlConnection(ConexionBD.CadenaSql))
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("sp_RegistrarCategoria", oConexion);
-                    cmd.Parameters.AddWithValue("Descripcion", oCategoria.nombre);
-                    cmd.Parameters.Add("Resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    oConexion.Open();
-
-                    cmd.ExecuteNonQuery();
-
-                    respuesta = Convert.ToBoolean(cmd.Parameters["Resultado"].Value);
-
-                }
-                catch (Exception ex)
-                {
-                    respuesta = false;
-                }
-            }
-            return respuesta;
-        }
-
-        public bool Modificar(CategoriaDto oCategoria)
-        {
-            bool respuesta = true;
-            using (SqlConnection oConexion = new SqlConnection(ConexionBD.CadenaSql))
-            {
-                try
-                {
-                    SqlCommand cmd = new SqlCommand("sp_ModificarCategoria", oConexion);
-                    cmd.Parameters.AddWithValue("IdCategoria", oCategoria.id_categoria);
-                    cmd.Parameters.AddWithValue("Descripcion", oCategoria.nombre);
+                    SqlCommand cmd = new SqlCommand("sp_EditarCategoria", oConexion);
+                    cmd.Parameters.AddWithValue("IdCategoria", oCategoria.IdCategoria);
+                    cmd.Parameters.AddWithValue("Descripcion", oCategoria.Descripcion);
                     cmd.Parameters.Add("Resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
 
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -114,12 +102,10 @@ namespace Osbar.Repositories
                 catch (Exception ex)
                 {
                     respuesta = false;
+                    throw ex;
                 }
-
             }
-
             return respuesta;
-
         }
 
         public bool Eliminar(int id)
@@ -129,9 +115,9 @@ namespace Osbar.Repositories
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("delete from CATEGORIA where idcategoria = @id", oConexion);
+                    SqlCommand cmd = new SqlCommand("SP_EliminarCategoria", oConexion);
                     cmd.Parameters.AddWithValue("@id", id);
-                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandType = CommandType.StoredProcedure;
 
                     oConexion.Open();
 
@@ -143,12 +129,11 @@ namespace Osbar.Repositories
                 catch (Exception ex)
                 {
                     respuesta = false;
+                    throw ex;
                 }
-
             }
-
             return respuesta;
-
         }
+
     }
 }

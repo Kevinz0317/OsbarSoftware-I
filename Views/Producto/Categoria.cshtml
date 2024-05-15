@@ -85,10 +85,10 @@
                         "datatype": "json"
                     },
                     "columns": [
-                        { "data": "nombre" },
+                        { "data": "Descripcion" },
 
                         {
-                            "data": "id_categoria", "render": function (data, type, row, meta) {
+                            "data": "IdCategoria", "render": function (data, type, row, meta) {
 
                                 return $("<button>").addClass("btn btn-primary btn-editar btn-sm").append(
                                     $("<i>").addClass("fas fa-pen")
@@ -123,8 +123,8 @@
 
             if (json != null) {
 
-                $("#txtid").val(json.id_categoria);
-                $("#txtdescripcion").val(json.nombre);
+                $("#txtid").val(json.IdCategoria);
+                $("#txtdescripcion").val(json.Descripcion);
             }
 
             $('#FormModal').modal('show');
@@ -136,7 +136,7 @@
             jQuery.ajax({
                 url: '@Url.Action("EliminarCategoria", "Producto")',
                 type: "POST",
-                data: JSON.stringify({ id: json.id_categoria}),
+                data: JSON.stringify({ id: json.IdCategoria}),
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
@@ -159,8 +159,8 @@
         function Guardar() {
             var request = {
                 objeto: {
-                    id_categoria: $("#txtid").val(),
-                    nombre: $("#txtdescripcion").val(),
+                    IdCategoria: $("#txtid").val(),
+                    Descripcion: $("#txtdescripcion").val(),
                 }
             }
 

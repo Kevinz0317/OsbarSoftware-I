@@ -584,7 +584,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Imagenes\ProductosImgs\" />
     <Folder Include="Repositories\Models\" />
   </ItemGroup>
   <ItemGroup>

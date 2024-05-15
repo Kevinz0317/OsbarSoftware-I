@@ -8,22 +8,19 @@ namespace Osbar.Dto
 {
     public class UsuarioDto
     {
-        public int no_ident { get; set; }
-        public int id_rol {  get; set; }
-        public int id_tipo_ident { get; set; }
-        public String nombre { get; set; }
-        public String apellido_m { get; set; }
-        public String apellido_p { get; set; }
-        public int id_ciudad {  get; set; }
-        public String dirección { get; set; }
-        public String teléfono { get; set; }
-        public String email { get; set; }
-        public String contraseña { get; set; }
-        public String confirmar_contraseña { get; set; }
-        public bool restablecer { get; set; }
-        public bool confirmado { get; set; }
-        public String token { get; set; }
+        public int idUsuario { get; set; }
+        public int noDocumento { get; set; }
+        public int idRol {  get; set; }
+        public int idTipoIdentificacion { get; set; }
+        public String Nombres { get; set; }
+        public String Apellidos { get; set; }
+        public String Telefono { get; set; }
+        public String Email { get; set; }
+        public String Contraseña { get; set; }
+        public String Confirmar_contraseña { get; set; }
+        public bool Reestablecer { get; set; }
+        public bool Confirmado { get; set; }
+        public String Token { get; set; }
 
-        public RolDto idRol { get; set; }
-    }
+     }
 }

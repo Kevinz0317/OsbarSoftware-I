@@ -19,14 +19,14 @@
             <div class="card">
                 <div class="card-header"><h3 class="text-center">Restablecer cuenta</h3></div>
                 <div class="card-body">
-                    @if (ViewBag.Restablecido == null)
+                    @if (ViewBag.Reestablecido == null)
                     {
                         <form action="@Url.Action("Reestablecer","Inicio")" method="post">
                             <p>Ingrese su dirección de correo electrónico y le enviaremos un enlace para restablecer su contraseña.</p>
 
                             <div class="mb-3">
                                 <label>Correo</label>
-                                <input type="email" class="form-control" name="email" value="@(ViewBag.email !=null ? ViewBag.email : "")" required />
+                                <input type="email" class="form-control" name="Email" value="@(ViewBag.Email !=null ? ViewBag.Email : "")" required />
                             </div>
 
                             @if (ViewBag.Mensaje != null)
