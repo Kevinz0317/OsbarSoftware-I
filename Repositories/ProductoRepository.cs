@@ -62,7 +62,7 @@ namespace Osbar.Repositories
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("sp_registrarProducto", oConexion);
+                    SqlCommand cmd = new SqlCommand("SP_AgregarProducto", oConexion);
                     cmd.Parameters.AddWithValue("Nombre", oProducto.Nombre);
                     cmd.Parameters.AddWithValue("Descripcion", oProducto.Descripcion);
                     cmd.Parameters.AddWithValue("IdCategoria", oProducto.oCategoria.IdCategoria);
@@ -94,7 +94,7 @@ namespace Osbar.Repositories
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("sp_EditarProducto", oConexion);
+                    SqlCommand cmd = new SqlCommand("SP_EditarProducto", oConexion);
                     cmd.Parameters.AddWithValue("IdProducto", oProducto.IdProducto);
                     cmd.Parameters.AddWithValue("Nombre", oProducto.Nombre);
                     cmd.Parameters.AddWithValue("Descripcion", oProducto.Descripcion);
@@ -127,7 +127,7 @@ namespace Osbar.Repositories
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("sp_actualizarRutaImagen", oConexion);
+                    SqlCommand cmd = new SqlCommand("SP_RutaImagen", oConexion);
                     cmd.Parameters.AddWithValue("IdProducto", oProducto.IdProducto);
                     cmd.Parameters.AddWithValue("RutaImagen", oProducto.RutaImagen);
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -150,9 +150,9 @@ namespace Osbar.Repositories
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("delete from Producto where idProducto = @id", oConexion);
+                    SqlCommand cmd = new SqlCommand("SP_EliminarProducto", oConexion);
                     cmd.Parameters.AddWithValue("@id", id);
-                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandType = CommandType.StoredProcedure;
 
                     oConexion.Open();
 
