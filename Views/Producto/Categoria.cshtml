@@ -4,10 +4,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<ol class="breadcrumb mb-4 mt-4">
-    <li class="breadcrumb-item"><a href="#">Mantenedores</a></li>
-    <li class="breadcrumb-item active">Categorias</li>
-</ol>
 
 <div class="card mb-4">
     <div class="card-header">
@@ -16,7 +12,7 @@
     <div class="card-body">
         <div class="row">
             <div class="col-sm-12">
-                <button class="btn btn-success" type="button" onclick="abrirModal(null)">Crear Nuevo</button>
+                <button class="btn btn-success" type="button" onclick="abrirModal(null)">Crear Nueva Categoría</button>
             </div>
         </div>
 
@@ -25,7 +21,7 @@
             <thead>
                 <tr>
 
-                    <th>Descripcion</th>
+                    <th>Nombre</th>
                     <th></th>
                 </tr>
             </thead>
@@ -35,7 +31,7 @@
 </div>
 
 
-<!-- Modal -->
+
 <div class="modal fade" id="FormModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -51,7 +47,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <label for="txtdescripcion">Descripcion</label>
+                                <label for="txtdescripcion">Nombre</label>
                                 <input type="text" class="form-control required" id="txtdescripcion" name="descripcion" autocomplete="off">
                             </div>
                         </div>
@@ -143,6 +139,7 @@
 
                     if (data.resultado) {
                         tabladata.ajax.reload();
+                        swal("Mensaje", "Se eliminó correctamente", "warning")
                     } else {
                         alert("No se pudo eliminar")
                     }
@@ -175,9 +172,9 @@
                     if (data.resultado) {
                         tabladata.ajax.reload();
                         $('#FormModal').modal('hide');
+                        swal("Mensaje", "Se guardaron los cambios", "success")
                     } else {
-                        alert("No se pudo guardar los cambios")
-                        //swal("Mensaje", "No se pudo guardar los cambios", "warning")
+                        swal("Mensaje", "No se pudo guardar los cambios", "warning")
                     }
                 },
                 error: function (error) {

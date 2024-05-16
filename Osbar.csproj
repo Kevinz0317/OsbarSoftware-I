@@ -601,7 +601,6 @@
     <Content Include="Views\Catalogo\Index.cshtml" />
     <Content Include="Scripts\loadingoverlay.min.js.map" />
     <Content Include="Views\Catalogo\Carrito.cshtml" />
-    <Content Include="Views\Shared\_LayoutTienda.cshtml" />
     <Content Include="Views\Home\FundamentosEmpresa.cshtml" />
     <Content Include="Views\Producto\ProductosReporte.cshtml" />
   </ItemGroup>
