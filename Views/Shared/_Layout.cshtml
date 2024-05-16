@@ -1,53 +1,82 @@
-﻿    <!DOCTYPE html>
-    <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
-        @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")
-        @Styles.Render("~/Content/PluginsCSS")
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
-            <div class="container">
-                @Html.ActionLink("Nombre de la aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Alternar navegación" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li>@Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Acerca de", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Contacto", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Catalogo", "Index", "Catalogo", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("CRUD Producto", "Producto", "Producto", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Login", "Login", "Inicio", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("CRUD Categoria", "Categoria", "Producto", new { area = "" }, new { @class = "nav-link" })</li>
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="~/Imagenes/Logo.jpeg" type="image/x-icon">
+    <link rel="shortcut icon" href="~/Imagenes/Logo.jpeg" type="image/x-icon">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/PluginsCSS")
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-red bg-red" style="background-image: linear-gradient(to right, #ffffff 50%, #ff9999);">
+        <div class="container">
+            <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+                <img src="~/Imagenes/Logo.jpeg" style="width: 150px; height: auto;" />
+            </a>
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
 
+                <ul class="navbar-nav flex-grow-1">
+                    <li>@Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
 
-
-                        <li>@Html.ActionLink("Cerrar Sesion", "CerrarSesion", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    </ul>
-                </div>
+                    <li>@Html.ActionLink("Catálogo", "Index", "Catalogo", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Modificar
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li>@Html.ActionLink("CRUD Producto", "Producto", "Producto", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("CRUD Categoria", "Categoria", "Producto", new { area = "" }, new { @class = "nav-link" })</li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("Mi carrito", "Carrito", "Catalogo", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Login
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li>@Html.ActionLink("Registrarse", "Registro", "Inicio", new { area = "" }, new { @class = "dropdown-item" })</li>
+                            <li>@Html.ActionLink("Iniciar sesión", "Login", "Inicio", new { area = "" }, new { @class = "dropdown-item" })</li>
+                            <li>@Html.ActionLink("Cerrar sesión", "CerrarSesion", "Home", new { area = "" }, new { @class = "dropdown-item" })</li>
+                        </ul>
+                    </li>
+                </ul>
+                <form action="@Url.Action("Carrito","Catalogo")" method="post" class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                    <button class="btn btn-close-white" type="submit">
+                        <i class="bi bi-cart"></i>
+                        <span class="badge bg-dark text-white ms-1 rounded-pill contador-carrito">0</span>
+                    </button>
+                </form>
             </div>
-        </nav>
-        <div class="container body-content">
-            @RenderBody()
-            <hr />
-            <footer>
-                <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
-            </footer>
+            <div class="diagonal-line"></div>
         </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>
+                <i class="fas fa-envelope"></i> Correo electrónico: atreus344@gmail.com<br>
+                <i class="fas fa-phone"></i> Teléfono celular: 3052866438
+            </p>
+            <p>
+                <a href="@Url.Action("About", "Home")" class="btn btn-outline-dark">Acerca de nosotros</a>
+            </p>
+            <p>&copy; @DateTime.Now.Year - Inversiones OSBAR</p>
+        </footer>
+    </div>
 
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @Scripts.Render("~/Content/PluginsJS")
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Content/PluginsJS")
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
 
 
-        @RenderSection("scripts", required: false)
-    </body>
-    </html>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

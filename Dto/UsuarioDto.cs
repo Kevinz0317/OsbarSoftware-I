@@ -8,7 +8,7 @@ namespace Osbar.Dto
 {
     public class UsuarioDto
     {
-        public int idUsuario { get; set; }
+        public int IdUsuario { get; set; }
         public int noDocumento { get; set; }
         public int idRol {  get; set; }
         public int idTipoIdentificacion { get; set; }

@@ -1,94 +1,88 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="es">
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta charset="UTF-8">
     <title>Registro</title>
-    @Styles.Render("~/Content/css")
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link rel="stylesheet" href="~/Content/CSS/EstilosRegistro.css" />
 </head>
 <body>
-    <div class="row justify-content-center mt-5">
-        <div class="col-5">
-            <div class="card-header">
-                <h3 class="text-center">Registro</h3>
-                <div class="card-body">
 
-                    @if (ViewBag.Creado == null)
-                    {
-                        <form action="@Url.Action("Registro","Inicio")" method="post">
-                            <div class="mb-3">
-                                <label for="tipo_ident">Tipo de Documento:</label>
-                                <select id="idTipoIdentificacion" class="form-control" name="idTipoIdentificacion">
-                                    <option value="1">Cédula de Ciudadanía</option>
-                                    <option value="2">Cédula de Extranjería</option>
-                                    <option value="3">Pasaporte</option>
-                                </select>
-                            </div>
+    <form class="formulario" action="@Url.Action("Registro","Inicio")" method="post">
 
-                            <div class="mb-3">
-                                <label>Numero de Documento</label>
-                                <input type="number" class="form-control" name="noDocumento" value="@(ViewBag.Documento !=null ? ViewBag.Documento : "")" required />
-                            </div>
-                            <div class="mb-3">
-                                <label>Nombres</label>
-                                <input type="text" class="form-control" name="Nombres" value="@(ViewBag.Nombres !=null ? ViewBag.Nombres : "")" required />
-                            </div>
-                            <div class="mb-3">
-                                <label>Apellidos</label>
-                                <input type="text" class="form-control" name="Apellidos" value="@(ViewBag.Apellidos !=null ? ViewBag.Apellidos : "")" />
-                            </div>
-                            <div class="mb-3">
-                                <label>Teléfono</label>
-                                <input type="number" x class="form-control" name="Telefono" value="@(ViewBag.Telefono !=null ? ViewBag.Telefono : "")" />
-                            </div>
-                            <div class="mb-3">
-                                <label>Correo</label>
-                                <input type="email" class="form-control" name="Email" value="@(ViewBag.Email !=null ? ViewBag.Email : "")" required />
-                            </div>
-                            <div class="mb-3">
-                                <label>Contraseña</label>
-                                <input type="password" class="form-control" name="Contraseña" required />
-                            </div>
-                            <div class="mb-3">
-                                <label>Confirmar Contraseña</label>
-                                <input type="password" class="form-control" name="Confirmar_contraseña" required />
-                            </div>
+        <h1>Registrate</h1>
+        <div class="contenedor">
 
-                            @if (ViewBag.Mensaje != null)
-                            {
-                                <div class="alert alert-danger">
-                                    @ViewBag.Mensaje
-                                </div>
-                            }
-
-                            <div class="mb-3">
-                                <div class="d-grid">
-                                    <button class="btn btn-primary" type="submit">Registrarse </button>
-                                    <a class="btn btn-link" href="@Url.Action("Login","Inicio")">¿Ya tienes una cuenta? Inicia sesion aquí</a>
-                                </div>
-                            </div>
-
-
-                        </form>
-                    }
-                    else
-                    {
-                        <div class="alert alert-success">
-                            <p>@ViewBag.Mensaje</p>
-                            <a class="btn btn-success" href="@Url.Action("Login","Inicio")">Ingresar</a>
-                        </div>
-                    }
-
-                </div>
+            <div class="mb-3">
+                <select id="idTipoIdentificacion" class="select-css" name="idTipoIdentificacion">
+                    <option value="1">Cédula de Ciudadanía</option>
+                    <option value="2">Cédula de Extranjería</option>
+                    <option value="3">Pasaporte</option>
+                </select>
             </div>
-        </div>
-    </div>
-    @Scripts.Render("~/bundles/bootstrap")
-</body>
 
+            <div class="input-contenedor">
+                <i class="fas fa-user icon"></i>
+                <input type="number" placeholder="Número de documento" class="form-control" name="noDocumento" value="@(ViewBag.Documento !=null ? ViewBag.Documento : "")" required />
+
+            </div>
+
+            <div class="input-contenedor">
+                <i class="fas fa-user icon"></i>
+                <input type="text" placeholder="Nombres" class="form-control" name="Nombres" value="@(ViewBag.Nombres !=null ? ViewBag.Nombres : "")" required />
+
+            </div>
+
+            <div class="input-contenedor">
+                <i class="fas fa-user icon"></i>
+                <input type="text" placeholder="Apellidos" class="form-control" name="Apellidos" value="@(ViewBag.Apellidos !=null ? ViewBag.Apellidos : "")" />
+
+            </div>
+
+            <div class="input-contenedor">
+                <i class="fas fa-user icon"></i>
+                <input type="number" placeholder="Teléfono" class="form-control" name="Telefono" value="@(ViewBag.Telefono !=null ? ViewBag.Telefono : "")" />
+
+
+            </div>
+
+            <div class="input-contenedor">
+                <i class="fas fa-envelope icon"></i>
+                <input type="email" placeholder="Correo Electronico" class="form-control" name="Email" value="@(ViewBag.Email !=null ? ViewBag.Email : "")" required />
+
+            </div>
+
+            <div class="input-contenedor">
+                <i class="fas fa-key icon"></i>
+                <input type="password" placeholder="Contraseña" class="form-control" name="Contraseña" required />
+
+            </div>
+
+            <div class="input-contenedor">
+                <i class="fas fa-key icon"></i>
+                <input type="password" placeholder="Confirmar Contraseña" class="form-control" name="Confirmar_contraseña" required />
+
+            </div>
+
+            @if (ViewBag.Mensaje != null)
+            {
+                <div class="alert alert-danger">
+                    @ViewBag.Mensaje
+                </div>
+            }
+
+            <input type="submit" value="Registrate" class="button">
+            <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
+            <p>¿Ya tienes una cuenta?<a class="link" href="@Url.Action("Login","Inicio")">Iniciar Sesion</a></p>
+            <p>Volver al Inicio <a class="link" href="@Url.Action("Index","Home")">Haz clic aquí </a></p>
+
+        </div>
+        @Scripts.Render("~/bundles/bootstrap")
+    </form>
+</body>
 </html>

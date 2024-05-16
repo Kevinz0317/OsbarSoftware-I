@@ -21,7 +21,7 @@ namespace Osbar.Repositories
             List<ProductoDto> rptListaProducto = new List<ProductoDto>();
             using (SqlConnection oConexion = new SqlConnection(ConexionBD.CadenaSql))
             {
-                SqlCommand cmd = new SqlCommand("sp_obtenerProducto", oConexion);
+                SqlCommand cmd = new SqlCommand("SP_ConsultarProducto", oConexion);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 try
@@ -127,7 +127,7 @@ namespace Osbar.Repositories
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("SP_RutaImagen", oConexion);
+                    SqlCommand cmd = new SqlCommand("SP_EditarRutaImagen", oConexion);
                     cmd.Parameters.AddWithValue("IdProducto", oProducto.IdProducto);
                     cmd.Parameters.AddWithValue("RutaImagen", oProducto.RutaImagen);
                     cmd.CommandType = CommandType.StoredProcedure;

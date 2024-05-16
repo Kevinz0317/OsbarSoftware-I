@@ -4,49 +4,52 @@
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="es">
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta charset="UTF-8">
     <title>Login</title>
-    @Styles.Render("~/Content/css")
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link rel="stylesheet" href="~/Content/CSS/EstilosLogin.css"x>
+
 </head>
 <body>
-    <div class="row justify-content-center mt-5">
-        <div class="col-5">
-            <div class="card-header">
-                <h3 class="text-center">Login</h3>
+    <form class="formulario" action="@Url.Action("Login","Inicio")" method="post">
+
+        <h1>Bienvenido</h1>
+
+
+
+        <div class="contenedor">
+
+            <div class="input-contenedor">
+                <i class="fas fa-envelope icon"></i>
+                <input type="email" placeholder="Correo Electronico" class="form-control" name="Email" required />
+
             </div>
-            <div class="card-body">
-                <form action="@Url.Action("Login","Inicio")" method="post">
-                    <div class="mb-3">
-                        <label>Correo</label>
-                        <input type="email" class="form-control" name="Email" required />
-                    </div>
-                    <div class="mb-3">
-                        <label>Contraseña</label>
-                        <input type="password" class="form-control" name="Contraseña" required />
-                    </div>
 
-                    @if (ViewBag.Mensaje != null)
-                    {
-                        <div class="alert alert-danger">
-                            @ViewBag.Mensaje
-                        </div>
-                    }
-
-                    <div class="mb-3">
-                        <div class="d-grid">
-                            <button class="btn btn-primary" type="submit">Iniciar Sesión</button>
-                            <a class="btn btn-link" href="@Url.Action("Registro","Inicio")">¿Sin Cuenta? Registrate aquí</a>
-                            <a class="btn btn-link" href="@Url.Action("Reestablecer","Inicio")">¿Olvidaste tu contraseña?</a>
-                        </div>
-                    </div>
-
-                </form>
+            <div class="input-contenedor">
+                <i class="fas fa-key icon"></i>
+                <input type="password" placeholder="Contraseña" class="form-control" name="Contraseña" required />
             </div>
+            @if (ViewBag.Mensaje != null)
+            {
+                <div class="alert alert-danger">
+                    @ViewBag.Mensaje
+                </div>
+            }
+            <input type="submit" value="Iniciar sesión" class="button">
+
+            <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
+            <p>¿No tienes una cuenta? <a class="link" href="@Url.Action("Registro","Inicio")">Registrate </a></p>
+            <p>¿Olvidaste tu contraseña? <a class="link" href="@Url.Action("Reestablecer","Inicio")">Recuperar contraseña </a></p>
+            <p>Volver al Inicio <a class="link" href="@Url.Action("Index","Home")">Haz clic aquí</a></p>
+
         </div>
-    </div>
-    @Scripts.Render("~/bundles/bootstrap")
+    </form>
+
 </body>
 </html>
+
+
+

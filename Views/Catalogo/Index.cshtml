@@ -1,16 +1,17 @@
 ﻿
 @{
     ViewBag.Title = "Index";
+
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
 <div class="row mt-5">
-    <div class="bg-secondary py-3">
+    <div class="bg-danger py-3">
         <div class="container my-3">
             <div class="text-center text-white">
-                <h1 class="display-4 fw-bolder">Compra con estilo </h1>
-                <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>
+                <h1 class="display-4 fw-bolder">Compra con estilo</h1>
+                <p class="lead fw-normal text-white-50 mb-0">Revisa todos los productos que ofrecemos para ti</p>
             </div>
         </div>
     </div>
@@ -110,21 +111,18 @@ function listarProductos(_idcategoria) {
             if (data.data != null) {
 
                 $.each(data.data, function (i, item) {
-                    //catalogo-productos
                     $("<div>").addClass("col mb-5").append(
                         $("<div>").addClass("card h-100").append(
                             $("<img>").addClass("card-img-top").attr({ "src": "data:image/" + item.extension + ";base64," + item.base64 }),
-                            //Product details
                             $("<div>").addClass("card-body p-4").append(
                                 $("<div>").addClass("text-center").append(
                                     $("<h5>").addClass("fw-bolder").text(item.Nombre),
                                 )
                             ),
-                            //Product actions
                             $("<div>").addClass("card-footer p-4 pt-0 border-top-0 bg-transparent").append(
                                 $("<div>").addClass("d-grid d-md-grid gap-2 d-md-block align-items-center text-center").append(
                                     $("<button>").addClass("btn btn-outline-dark mt-auto btn-detalle").text("Ver Detalle").attr({ "data-elemento": JSON.stringify(item) }),
-                                   
+
                                             $("<button>").addClass("btn btn-outline-dark mt-auto btn-agregar-carrito").data("idproducto", item.IdProducto).text("Agregar al carrito")
                                 )
                             )

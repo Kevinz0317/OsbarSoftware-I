@@ -33,10 +33,10 @@ namespace Osbar.Controllers
                 {
                     ViewBag.Mensaje = $"Se ha solicitado la restauración de su contraseña. Revise su correo electrónico {Email}";
                 }
-                else
+                else 
                 {
-                    return RedirectToAction("index", "Home");
-                }
+                    return RedirectToAction("Index", "Home");
+                }   
             }
             else
             {

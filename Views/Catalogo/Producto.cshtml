@@ -1,10 +1,9 @@
 ﻿@model Osbar.Dto.ProductoDto
 @{
     ViewBag.Title = "Producto";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutTienda.cshtml";
 }
 
-<h2>Producto</h2>
 <section class="py-5">
     <div class="container px-4 px-lg-5 my-5">
         <div class="row gx-4 gx-lg-5 align-items-center">
@@ -13,11 +12,18 @@
                 <div class="small mb-1">@Html.DisplayTextFor(model => model.oCategoria.Descripcion)</div>
                 <h1 class="display-5 fw-bolder">@Html.DisplayTextFor(model => model.Nombre)</h1>
                 <div class="fs-5 mb-5">
-                    <span>@Html.DisplayTextFor(model => model.Precio)</span>
+                    <span>$@Html.DisplayTextFor(model => model.Precio)</span>
                 </div>
                 <p class="lead">@Html.DisplayTextFor(model => model.Descripcion)</p>
+                <div class="d-flex">
+                    <a href="@Url.Action("Index", "Catalogo")" class="btn btn-danger w-50 text-center me-3">
+                        <i class="fas fa-undo-alt"></i> Volver
+                    </a>
+                            <button class="btn btn-success btn-agregar-carrito flex-shrink-0 w-50 " type="button" data-idproducto="@Html.DisplayTextFor(model => model.IdProducto)">
+                                <i class="fas fa-cart-plus"></i> Agregar al carrito
+                            </button>
+                </div>
             </div>
         </div>
     </div>
 </section>
-

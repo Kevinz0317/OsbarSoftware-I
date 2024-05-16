@@ -104,3 +104,4 @@ C:\Users\kevin\source\repos\OsbarSoftware-I\OsbarSoftware-I\obj\Release\Osbar.cs
 C:\Users\kevin\source\repos\OsbarSoftware-I\OsbarSoftware-I\obj\Release\Osbar.csproj.Up2Date
 C:\Users\kevin\source\repos\OsbarSoftware-I\OsbarSoftware-I\obj\Release\Osbar.dll
 C:\Users\kevin\source\repos\OsbarSoftware-I\OsbarSoftware-I\obj\Release\Osbar.pdb
+C:\Users\kevin\source\repos\OsbarSoftware-I\OsbarSoftware-I\bin\Rotativa.dll
