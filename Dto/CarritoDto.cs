@@ -7,8 +7,7 @@ namespace Osbar.Dto
 {
     public class CarritoDto
     {
-        public int IdCarrito { get; set; }
-        public ProductoDto oProducto { get; set; }
-        public UsuarioDto oUsuario { get; set; }
+        public ProductoDto producto { get; set; }
+        public UsuarioDto usuario { get; set; }
     }
 }

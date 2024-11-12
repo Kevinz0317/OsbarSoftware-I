@@ -8,7 +8,6 @@ using Newtonsoft.Json;
 using Osbar.Dto;
 using Osbar.Repositories;
 using Osbar.Utilities;
-using Rotativa;
 
 namespace Osbar.Controllers
 {
@@ -16,26 +15,15 @@ namespace Osbar.Controllers
     {
         ProductoRepository pr = new ProductoRepository();
         CategoriaRepository cr = new CategoriaRepository();
-        private static UsuarioDto oUsuario;
-
 
         // GET: Producto
         public ActionResult Producto()
         {
-            if (Session["Usuario"] == null)
-                return RedirectToAction("Login", "Inicio");
-            else
-                oUsuario = (UsuarioDto)Session["Usuario"];
             return View();
         }
 
         public ActionResult Categoria()
         {
-
-            if (Session["Usuario"] == null)
-                return RedirectToAction("Login", "Inicio");
-            else
-                oUsuario = (UsuarioDto)Session["Usuario"];
             return View();
         }
 
@@ -143,7 +131,5 @@ namespace Osbar.Controllers
             respuesta = pr.Eliminar(id);
             return Json(new { resultado = respuesta }, JsonRequestBehavior.AllowGet);
         }
-
-        
     }
 }
