@@ -1,26 +1,64 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\kevin\\source\\repos\\OsbarSoftware-I\\OsbarSoftware-I\\",
+  "WorkspaceRootPath": "C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|c:\\users\\kevin\\source\\repos\\osbarsoftware-i\\osbarsoftware-i\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|solutionrelative:app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|c:\\users\\kevin chiquillo\\desktop\\osbarsoftware-i-4befb15dc23093890d03afb591d9e09a2a4e5f05\\views\\producto\\producto.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|solutionrelative:views\\producto\\producto.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|c:\\users\\kevin\\source\\repos\\osbarsoftware-i\\osbarsoftware-i\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|solutionrelative:web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|Osbar||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|c:\\users\\kevin\\source\\repos\\osbarsoftware-i\\osbarsoftware-i\\web.debug.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|solutionrelative:web.debug.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|c:\\users\\kevin\\source\\repos\\osbarsoftware-i\\osbarsoftware-i\\web.release.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "AbsoluteMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|c:\\users\\kevin chiquillo\\desktop\\osbarsoftware-i-4befb15dc23093890d03afb591d9e09a2a4e5f05\\web.release.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|solutionrelative:web.release.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|c:\\users\\kevin\\source\\repos\\osbarsoftware-i\\osbarsoftware-i\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|solutionrelative:properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\views\\producto\\categoria.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|solutionrelative:views\\producto\\categoria.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\views\\catalogo\\carrito.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|solutionrelative:views\\catalogo\\carrito.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\views\\catalogo\\producto.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|solutionrelative:views\\catalogo\\producto.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\controllers\\productocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|solutionrelative:controllers\\productocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\views\\inicio\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|solutionrelative:views\\inicio\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\controllers\\catalogocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|solutionrelative:controllers\\catalogocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\views\\inicio\\registro.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|solutionrelative:views\\inicio\\registro.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\controllers\\iniciocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|solutionrelative:controllers\\iniciocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\utilities\\convertirbase64.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|solutionrelative:utilities\\convertirbase64.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\utilities\\encriptarcontrase\u00F1a.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|solutionrelative:utilities\\encriptarcontrase\u00F1a.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C9179E0-DDFB-4748-8811-5081A4303BF8}|Osbar.csproj|c:\\users\\kevin chiquillo\\desktop\\osbarsoftware-i-4befb15dc23093890d03afb591d9e09a2a4e5f05\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|a54ad834-9219-4aa6-b589-607af21c3e26"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,72 +68,177 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RouteConfig.cs",
-              "DocumentMoniker": "C:\\Users\\kevin\\source\\repos\\OsbarSoftware-I\\OsbarSoftware-I\\App_Start\\RouteConfig.cs",
-              "RelativeDocumentMoniker": "App_Start\\RouteConfig.cs",
-              "ToolTip": "C:\\Users\\kevin\\source\\repos\\OsbarSoftware-I\\OsbarSoftware-I\\App_Start\\RouteConfig.cs",
-              "RelativeToolTip": "App_Start\\RouteConfig.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABIAAABGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-26T16:28:35.694Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Web.config",
-              "DocumentMoniker": "C:\\Users\\kevin\\source\\repos\\OsbarSoftware-I\\OsbarSoftware-I\\Web.config",
-              "RelativeDocumentMoniker": "Web.config",
-              "ToolTip": "C:\\Users\\kevin\\source\\repos\\OsbarSoftware-I\\OsbarSoftware-I\\Web.config",
-              "RelativeToolTip": "Web.config",
-              "ViewState": "AQIAADMAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2024-04-26T16:27:34.038Z",
+              "Title": "Osbar",
+              "DocumentMoniker": "C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\Osbar.csproj",
+              "RelativeDocumentMoniker": "Osbar.csproj",
+              "ToolTip": "C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\Osbar.csproj",
+              "RelativeToolTip": "Osbar.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-11-14T14:12:01.415Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Web.Debug.config",
-              "DocumentMoniker": "C:\\Users\\kevin\\source\\repos\\OsbarSoftware-I\\OsbarSoftware-I\\Web.Debug.config",
-              "RelativeDocumentMoniker": "Web.Debug.config",
-              "ToolTip": "C:\\Users\\kevin\\source\\repos\\OsbarSoftware-I\\OsbarSoftware-I\\Web.Debug.config",
-              "RelativeToolTip": "Web.Debug.config",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "Web.Release.config",
+              "DocumentMoniker": "C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\Web.Release.config",
+              "RelativeDocumentMoniker": "Web.Release.config",
+              "ToolTip": "C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\Web.Release.config",
+              "RelativeToolTip": "Web.Release.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2024-04-26T16:27:32.359Z",
+              "WhenOpened": "2024-11-14T14:11:19.496Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Producto.cshtml",
+              "DocumentMoniker": "C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\Views\\Producto\\Producto.cshtml",
+              "RelativeDocumentMoniker": "Views\\Producto\\Producto.cshtml",
+              "ToolTip": "C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\Views\\Producto\\Producto.cshtml",
+              "RelativeToolTip": "Views\\Producto\\Producto.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFUAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-16T20:05:30.336Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Web.Release.config",
-              "DocumentMoniker": "C:\\Users\\kevin\\source\\repos\\OsbarSoftware-I\\OsbarSoftware-I\\Web.Release.config",
-              "RelativeDocumentMoniker": "Web.Release.config",
-              "ToolTip": "C:\\Users\\kevin\\source\\repos\\OsbarSoftware-I\\OsbarSoftware-I\\Web.Release.config",
-              "RelativeToolTip": "Web.Release.config",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2024-04-26T16:27:25.821Z",
-              "EditorCaption": ""
+              "Title": "Categoria.cshtml",
+              "DocumentMoniker": "C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\Views\\Producto\\Categoria.cshtml",
+              "RelativeDocumentMoniker": "Views\\Producto\\Categoria.cshtml",
+              "ToolTip": "C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\Views\\Producto\\Categoria.cshtml",
+              "RelativeToolTip": "Views\\Producto\\Categoria.cshtml",
+              "ViewState": "AQIAAEYAAAAAAAAAAAAQwFMAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-16T20:05:24.777Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "AssemblyInfo.cs",
-              "DocumentMoniker": "C:\\Users\\kevin\\source\\repos\\OsbarSoftware-I\\OsbarSoftware-I\\Properties\\AssemblyInfo.cs",
-              "RelativeDocumentMoniker": "Properties\\AssemblyInfo.cs",
-              "ToolTip": "C:\\Users\\kevin\\source\\repos\\OsbarSoftware-I\\OsbarSoftware-I\\Properties\\AssemblyInfo.cs",
-              "RelativeToolTip": "Properties\\AssemblyInfo.cs",
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAB8AAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-16T20:04:03.671Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Producto.cshtml",
+              "DocumentMoniker": "C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\Views\\Catalogo\\Producto.cshtml",
+              "RelativeDocumentMoniker": "Views\\Catalogo\\Producto.cshtml",
+              "ToolTip": "C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\Views\\Catalogo\\Producto.cshtml",
+              "RelativeToolTip": "Views\\Catalogo\\Producto.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-16T20:01:06.926Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Carrito.cshtml",
+              "DocumentMoniker": "C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\Views\\Catalogo\\Carrito.cshtml",
+              "RelativeDocumentMoniker": "Views\\Catalogo\\Carrito.cshtml",
+              "ToolTip": "C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\Views\\Catalogo\\Carrito.cshtml",
+              "RelativeToolTip": "Views\\Catalogo\\Carrito.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-16T19:45:23.023Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ProductoController.cs",
+              "DocumentMoniker": "C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\Controllers\\ProductoController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ProductoController.cs",
+              "ToolTip": "C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\Controllers\\ProductoController.cs",
+              "RelativeToolTip": "Controllers\\ProductoController.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAgwBMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-16T19:42:35.799Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "InicioController.cs",
+              "DocumentMoniker": "C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\Controllers\\InicioController.cs",
+              "RelativeDocumentMoniker": "Controllers\\InicioController.cs",
+              "ToolTip": "C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\Controllers\\InicioController.cs",
+              "RelativeToolTip": "Controllers\\InicioController.cs",
+              "ViewState": "AQIAAF8AAAAAAAAAAAAIwCUAAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-16T19:40:52.085Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Registro.cshtml",
+              "DocumentMoniker": "C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\Views\\Inicio\\Registro.cshtml",
+              "RelativeDocumentMoniker": "Views\\Inicio\\Registro.cshtml",
+              "ToolTip": "C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\Views\\Inicio\\Registro.cshtml",
+              "RelativeToolTip": "Views\\Inicio\\Registro.cshtml",
+              "ViewState": "AQIAADkAAAAAAAAAAAAAADkAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-16T19:38:49.695Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\Views\\Inicio\\Login.cshtml",
+              "RelativeDocumentMoniker": "Views\\Inicio\\Login.cshtml",
+              "ToolTip": "C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\Views\\Inicio\\Login.cshtml",
+              "RelativeToolTip": "Views\\Inicio\\Login.cshtml",
+              "ViewState": "AQIAABsAAAAAAAAAAAAAAC0AAABgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-16T19:38:12.285Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CatalogoController.cs",
+              "DocumentMoniker": "C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\Controllers\\CatalogoController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CatalogoController.cs",
+              "ToolTip": "C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\Controllers\\CatalogoController.cs",
+              "RelativeToolTip": "Controllers\\CatalogoController.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAcwBEAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-16T19:35:50.641Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ConvertirBase64.cs",
+              "DocumentMoniker": "C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\Utilities\\ConvertirBase64.cs",
+              "RelativeDocumentMoniker": "Utilities\\ConvertirBase64.cs",
+              "ToolTip": "C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\Utilities\\ConvertirBase64.cs",
+              "RelativeToolTip": "Utilities\\ConvertirBase64.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-26T16:27:11.899Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-16T19:13:51.076Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "EncriptarContrase\u00F1a.cs",
+              "DocumentMoniker": "C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\Utilities\\EncriptarContrase\u00F1a.cs",
+              "RelativeDocumentMoniker": "Utilities\\EncriptarContrase\u00F1a.cs",
+              "ToolTip": "C:\\Users\\Kevin Chiquillo\\Desktop\\OsbarSoftware-I-4befb15dc23093890d03afb591d9e09a2a4e5f05\\Utilities\\EncriptarContrase\u00F1a.cs",
+              "RelativeToolTip": "Utilities\\EncriptarContrase\u00F1a.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAqwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-16T19:13:49.771Z"
             }
           ]
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Rotativa;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -20,11 +21,20 @@ namespace Osbar.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult FundamentosEmpresa()
         {
-            ViewBag.Message = "Your contact page.";
+                ViewBag.Message = "Valores y Principios.";
 
-            return View();
+                return View();
+            
+        }
+
+       
+        public ActionResult CerrarSesion()
+        {
+            Session["Usuario"] = null;
+            Session.Abandon();
+            return RedirectToAction("Login","Inicio");
         }
     }
 }
