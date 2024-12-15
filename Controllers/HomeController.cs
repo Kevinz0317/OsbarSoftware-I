@@ -22,9 +22,23 @@ namespace Osbar.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            if (Session["Usuario"] != null)
+            {
+                ViewBag.Message = "Your contact page.";
 
-            return View();
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login","Inicio");
+            }
+        }
+
+        public ActionResult CerrarSesion()
+        {
+            Session["Usuario"] = null;
+            Session.Abandon();
+            return RedirectToAction("Login","Inicio");
         }
     }
 }

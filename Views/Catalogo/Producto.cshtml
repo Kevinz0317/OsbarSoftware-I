@@ -1,0 +1,23 @@
+﻿@model Osbar.Dto.ProductoDto
+@{
+    ViewBag.Title = "Producto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Producto</h2>
+<section class="py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="data:image/@Html.DisplayTextFor(model => model.extension);base64,@Html.DisplayTextFor(model => model.base64)" alt="..."></div>
+            <div class="col-md-6">
+                <div class="small mb-1">@Html.DisplayTextFor(model => model.oCategoria.Descripcion)</div>
+                <h1 class="display-5 fw-bolder">@Html.DisplayTextFor(model => model.Nombre)</h1>
+                <div class="fs-5 mb-5">
+                    <span>@Html.DisplayTextFor(model => model.Precio)</span>
+                </div>
+                <p class="lead">@Html.DisplayTextFor(model => model.Descripcion)</p>
+            </div>
+        </div>
+    </div>
+</section>
+
